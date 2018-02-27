@@ -34,10 +34,11 @@
           <a href="#!name"><span class="white-text name">John Doe</span></a>
           <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
         </div></li>
-        <li><a href="#!"><i class="material-icons">dashboard</i>Dashboard</a></li>
+        <li><a href="/dashboard"><i class="material-icons">dashboard</i>Dashboard</a></li>
         <li><a href="#!"><i class="material-icons">business_center</i>Empresas</a></li>
         <li><a href="#!"><i class="material-icons">people</i>Empleados</a></li>
         <li><a href="#!"><i class="material-icons">vpn_key</i>Licencias</a></li>
+        <li><a href="#!"><i class="material-icons">note</i>Examenes</a></li>
         <li><a href="#!"><i class="material-icons">verified_user</i>Usuarios</a></li>
       </ul>
       <!-- Dropdown navbar -->
