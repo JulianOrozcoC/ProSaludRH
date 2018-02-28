@@ -18,3 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/empresas', 'OrganizationController@index')->name('empresas');
+Route::get('/empresas/create', 'OrganizationController@create')->name('empresa');

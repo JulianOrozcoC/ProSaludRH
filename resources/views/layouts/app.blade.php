@@ -27,15 +27,21 @@
         }); // end of document ready
       })(jQuery); // end of jQuery name space
     </script>
+    <script>
+      $('.fixed-action-btn').openFAB();
+      $('.fixed-action-btn').closeFAB();
+      $('.fixed-action-btn.toolbar').openToolbar();
+      $('.fixed-action-btn.toolbar').closeToolbar();
+    </script>
     <div id="app">
       <ul id="slide-out" class="side-nav">
         <li><div class="user-view">
         <div class="background" style="background-color: #7908c8;"></div>
-          <span class="white-text name">{{$user->name}}</span>
-          <span class="white-text email">{{$user->email}}</span>
+          <span class="white-text name">Name</span>
+          <span class="white-text email">Email</span>
         </div></li>
         <li><a href="/dashboard"><i class="material-icons">dashboard</i>Dashboard</a></li>
-        <li><a href="#!"><i class="material-icons">business_center</i>Empresas</a></li>
+        <li><a href="/empresas"><i class="material-icons">business_center</i>Empresas</a></li>
         <li><a href="#!"><i class="material-icons">people</i>Empleados</a></li>
         <li><a href="#!"><i class="material-icons">vpn_key</i>Licencias</a></li>
         <li><a href="#!"><i class="material-icons">note</i>Examenes</a></li>
