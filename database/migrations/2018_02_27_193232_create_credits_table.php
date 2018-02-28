@@ -18,6 +18,7 @@ class CreateCreditsTable extends Migration
             $table->integer('amount');
             $table->integer('organization_id')->unsigned();
             $table->integer('test_id')->unsigned();
+            $table->softDeletes();
             $table->timestamps();
         });
 
