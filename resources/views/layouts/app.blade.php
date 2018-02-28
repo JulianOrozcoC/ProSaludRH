@@ -31,8 +31,8 @@
       <ul id="slide-out" class="side-nav">
         <li><div class="user-view">
         <div class="background" style="background-color: #7908c8;"></div>
-          <a href="#!name"><span class="white-text name">{{$user->name}}</span></a>
-          <a href="#!email"><span class="white-text email">{{$user->email}}</span></a>
+          <span class="white-text name">{{$user->name}}</span>
+          <span class="white-text email">{{$user->email}}</span>
         </div></li>
         <li><a href="/dashboard"><i class="material-icons">dashboard</i>Dashboard</a></li>
         <li><a href="#!"><i class="material-icons">business_center</i>Empresas</a></li>
