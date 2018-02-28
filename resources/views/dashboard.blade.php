@@ -16,7 +16,7 @@
 					<div class="col s4">
 						<div class="row">
 							<div class="col s12 m6">
-								<div class="card blue-grey darken-1">
+								<div class="card darken-1" style="background-color: #9347c7;">
 									<div class="card-content white-text">
 										<span style="text-align: center;" class="card-title">Total de Empresas</span>
 										<span style="text-align: center;"><h1>8 <i class="material-icons">business_center</i></h1></span>
@@ -28,7 +28,7 @@
 					<div class="col s4">
 						<div class="row">
 							<div class="col s12 m6">
-								<div class="card blue-grey darken-1">
+								<div class="card darken-1" style="background-color: #9347c7;">
 									<div class="card-content white-text">
 										<span style="text-align: center;" class="card-title">Total de Empleados</span>
 										<span style="text-align: center;"><h1>8 <i class="material-icons">people</i></h1></span>
@@ -40,7 +40,7 @@
 					<div class="col s4">
 						<div class="row">
 							<div class="col s12 m6">
-								<div class="card blue-grey darken-1">
+								<div class="card darken-1" style="background-color: #9347c7;">
 									<div class="card-content white-text">
 										<span style="text-align: center;" class="card-title">Total de Licencias</span>
 										<span style="text-align: center;"><h1>8 <i class="material-icons">vpn_key</i></h1></span>
@@ -56,7 +56,7 @@
 					<div class="col s4">
 						<div class="row">
 							<div class="col s12 m6">
-								<div class="card blue-grey darken-1">
+								<div class="card darken-1" style="background-color: #9347c7;">
 									<div class="card-content white-text">
 										<span style="text-align: center;" class="card-title">Total de Usuarios</span>
 										<span style="text-align: center;"><h1>8 <i class="material-icons">verified_user</i></h1></span>
@@ -68,7 +68,7 @@
 					<div class="col s4">
 						<div class="row">
 							<div class="col s12 m6">
-								<div class="card blue-grey darken-1">
+								<div class="card darken-1" style="background-color: #9347c7;">
 									<div class="card-content white-text">
 										<span style="text-align: center;" class="card-title">Total de Examenes</span>
 										<span style="text-align: center;"><h1>8 <i class="material-icons">note</i></h1></span>
