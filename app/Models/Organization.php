@@ -8,7 +8,6 @@ use \Askedio\SoftCascade\Traits\SoftCascadeTrait;
 
 class Organization extends Model
 {
-<<<<<<< HEAD
     use SoftCascadeTrait;
 
     /**
@@ -26,7 +25,4 @@ class Organization extends Model
     {
         return $this->hasMany(User::class);
     }
-=======
-    protected $fillable = ['name'];
->>>>>>> 552a628cdade3675141ac684ed0b9d7167d8170f
 }

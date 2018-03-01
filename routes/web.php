@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
-Route::get('/empresas', 'OrganizationController@index')->name('empresas');
-Route::get('/create', 'OrganizationController@create');
-Route::get('/show/{id}', 'OrganizationController@show');
-Route::post('organization',['as' => 'post.organization', 'uses' => 'OrganizationController@store']);
+Route::get('/organizations', 'OrganizationsController@getIndex')->name('organizations');
+Route::get('/create', 'OrganizationsController@create');
+Route::get('/show/{id}', 'OrganizationsController@show');
+Route::post('/organizations', 'OrganizationsController@postIndex');

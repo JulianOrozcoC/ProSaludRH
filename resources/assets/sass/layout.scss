@@ -1,0 +1,156 @@
+body{
+    background-color: #eee;
+}
+
+html{
+    font-size: 16px;
+}
+
+.hidden{
+    display: none;
+}
+
+.primary-color{
+    background-color: $primary-color;
+}
+.primary-color-text{
+    color: $primary-color;
+}
+.primary-text{
+    color:rgba(0,0,0,0.87);
+}
+nav{
+    form{
+        width: 50vw;
+        position: absolute;
+        top:0;
+        margin: 0 auto;
+        left:25vw;
+    }
+    .brand-logo{
+        padding-left: 3rem;
+        position: inherit;
+        font-size: 1.5rem;
+    }
+}
+#sidenav-overlay {
+    z-index: 1;
+}
+
+nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    @media only screen and (min-width: 601px){
+        height: 64px;
+        line-height: 64px;
+    }
+}
+
+#search-input-field{
+    @media only screen and (min-width: 0px){
+        height: 40px;
+    }
+    @media only screen and (min-width: 601px){
+        height: 48px;
+    }
+    margin-top: 8px;
+    background-color: #9371d2;
+    .material-icons{
+        @media only screen and (min-width: 0px){
+            margin-top: -8px;
+        }
+        @media only screen and (min-width: 601px){
+            margin-top: -7px;
+        }
+    }
+}
+
+#search-form{
+    @media only screen and (min-width: 0px){
+        width: 80vw;
+        left: 18vw;
+    }
+    @media only screen and (min-width: 400px){
+        width: 83vw;
+        left: 15vw;
+    }
+    @media only screen and (min-width: 480px){
+        width: 85vw;
+        left: 13vw;
+    }
+    @media only screen and (min-width: 540px){
+        width: 87vw;
+        left: 11vw;
+    }
+    @media only screen and (min-width: 601px){
+        width: 73vw;
+        left: 26vw;
+    }
+
+    @media only screen and (min-width: 925px){
+        width: 50vw;
+        left: 25vw;
+    }
+}
+
+#logout-form{
+    display: none;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: $primary-color;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid $primary-color;
+    box-shadow: 0 1px 0 0 $primary-color;
+}
+input:not([type]):focus:not([readonly])+label, input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label, input[type=email]:focus:not([readonly])+label, input[type=url]:focus:not([readonly])+label, input[type=time]:focus:not([readonly])+label, input[type=date]:focus:not([readonly])+label, input[type=datetime]:focus:not([readonly])+label, input[type=datetime-local]:focus:not([readonly])+label, input[type=tel]:focus:not([readonly])+label, input[type=number]:focus:not([readonly])+label, input[type=search]:focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
+    color: $primary-color;
+}
+
+.primary-button, .primary-button:hover, .primary-button:focus{
+    background-color: $primary-color;
+}
+
+.pagination li.active {
+    background-color: $primary-color;
+}
+
+.spinner-primary-color-only{
+    border-color: $primary-color;
+}
+
+.preloader{
+    display: none;
+}
+
+.model{
+    text-transform: uppercase;
+}
+input {
+    border-radius: 0;
+}
+
+.modal-content{
+    h4{
+        display: inline-block;
+    }
+}
+
+.input-field .prefix.active{
+ color: $primary-color;
+}
+
+.autocomplete-content{
+    li{
+        span{
+            text-transform: uppercase;
+        }
+    }
+}
+
+[type="checkbox"].filled-in:checked+label:after {
+
+    border: 2px solid $primary-color;
+    background-color: $primary-color;
+
+}
