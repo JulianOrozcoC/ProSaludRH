@@ -108,6 +108,7 @@ class ComposerStaticInitaf2cd977ab8e553cbb3154ab8e2d1ce2
         ),
         'A' => 
         array (
+            'Askedio\\SoftCascade\\' => 20,
             'App\\' => 4,
         ),
     );
@@ -279,6 +280,10 @@ class ComposerStaticInitaf2cd977ab8e553cbb3154ab8e2d1ce2
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
+        'Askedio\\SoftCascade\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -326,7 +331,7 @@ class ComposerStaticInitaf2cd977ab8e553cbb3154ab8e2d1ce2
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
-        'App\\Credit' => __DIR__ . '/../..' . '/app/Credit.php',
+        'App\\Credit' => __DIR__ . '/../..' . '/app/Models/Credit.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -334,22 +339,38 @@ class ComposerStaticInitaf2cd977ab8e553cbb3154ab8e2d1ce2
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\OrganizationController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrganizationController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Organization' => __DIR__ . '/../..' . '/app/Models/Organization.php',
+        'App\\Models\\Response' => __DIR__ . '/../..' . '/app/Models/Response.php',
+        'App\\Models\\Test' => __DIR__ . '/../..' . '/app/Models/Test.php',
+        'App\\Models\\TestApplication' => __DIR__ . '/../..' . '/app/Models/TestApplication.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
-        'App\\Organization' => __DIR__ . '/../..' . '/app/Organization.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\Response' => __DIR__ . '/../..' . '/app/Response.php',
-        'App\\Test' => __DIR__ . '/../..' . '/app/Test.php',
-        'App\\TestApplication' => __DIR__ . '/../..' . '/app/TestApplication.php',
+        'Askedio\\SoftCascade\\Contracts\\SoftCascadeable' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/Contracts/SoftCascadeable.php',
+        'Askedio\\SoftCascade\\EloquentSoftCascade' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/EloquentSoftCascade.php',
+        'Askedio\\SoftCascade\\Exceptions\\SoftCascadeLogicException' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/Exceptions/SoftCascadeLogicException.php',
+        'Askedio\\SoftCascade\\Exceptions\\SoftCascadeNonExistentRelationActionException' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/Exceptions/SoftCascadeNonExistentRelationActionException.php',
+        'Askedio\\SoftCascade\\Exceptions\\SoftCascadeRestrictedException' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/Exceptions/SoftCascadeRestrictedException.php',
+        'Askedio\\SoftCascade\\Listeners\\CascadeDeleteListener' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/Listeners/CascadeDeleteListener.php',
+        'Askedio\\SoftCascade\\Listeners\\CascadeQueryListener' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/Listeners/CascadeQueryListener.php',
+        'Askedio\\SoftCascade\\Listeners\\CascadeRestoreListener' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/Listeners/CascadeRestoreListener.php',
+        'Askedio\\SoftCascade\\Providers\\EventServiceProvider' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/Providers/EventServiceProvider.php',
+        'Askedio\\SoftCascade\\Providers\\GenericServiceProvider' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/Providers/GenericServiceProvider.php',
+        'Askedio\\SoftCascade\\Providers\\LumenEventServiceProvider' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/Providers/LumenEventServiceProvider.php',
+        'Askedio\\SoftCascade\\Providers\\LumenServiceProvider' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/Providers/LumenServiceProvider.php',
+        'Askedio\\SoftCascade\\QueryBuilderSoftCascade' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/QueryBuilderSoftCascade.php',
+        'Askedio\\SoftCascade\\SoftCascade' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/SoftCascade.php',
+        'Askedio\\SoftCascade\\Traits\\SoftCascadeTrait' => __DIR__ . '/..' . '/askedio/laravel5-soft-cascade/src/Traits/SoftCascadeTrait.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',

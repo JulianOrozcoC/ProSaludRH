@@ -47,5 +47,6 @@ return array(
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Cron\\' => array($vendorDir . '/dragonmantank/cron-expression/src/Cron'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
+    'Askedio\\SoftCascade\\' => array($vendorDir . '/askedio/laravel5-soft-cascade/src'),
     'App\\' => array($baseDir . '/app'),
 );

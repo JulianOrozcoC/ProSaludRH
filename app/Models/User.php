@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Organization;
+use App\Models\TestApplication;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
+use \Askedio\SoftCascade\Traits\SoftCascadeTrait;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasRoles;
+    use Notifiable, HasRoles, SoftCascadeTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -27,4 +30,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $softCascade = ['testApplications'];
+
+    /**
+     * The organization to wich the user belongs.
+     *
+     * @var array
+     */
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class);
+    }
+
+    public function testApplications()
+    {
+        return $this->hasMany(TestApplication::class);
+    }
 }
