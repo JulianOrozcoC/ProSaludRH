@@ -37,7 +37,14 @@ class OrganizationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+        	'name' => 'required'
+				]);
+				
+				$organization = New Organization;
+        $organization->name = $request->input('name');
+        $organization->save();
+        return redirect('/dashboard')->with('sucess', 'Empresa Creada');
     }
 
     /**
@@ -48,7 +55,8 @@ class OrganizationController extends Controller
      */
     public function show($id)
     {
-        //
+				$organization = Organization::find($id);
+        return view('empresas.show')->with('organization', $organization);
     }
 
     /**
