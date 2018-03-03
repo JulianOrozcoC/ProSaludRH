@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="{{asset('/css/materialize.clockpicker.css')}}">
     <link rel="stylesheet" href="{{asset('/css/sweetalert.css')}}">
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
-    <link rel="shortcut icon" href="{{asset('/images/favicon.ico')}}" type="image/vnd.microsoft.icon">
 
 </head>
 <body>
@@ -27,8 +26,7 @@
                     <ul id="slide-out" class="side-nav">
                         <li>
                             <div class="userView">
-                                <div class="background">
-                                    <img src="/images/sidenav-background.png">
+                                <div class="background primary-color">
                                 </div>
                                 <a href="/account-settings"><img class="circle" src="{{asset('/images/avatar.png')}}"></a>
                                 <a href="/account-settings"><span class="white-text name">{{\Auth::user()->name}}</span></a>
@@ -36,6 +34,7 @@
                             </div>
                         </li>
                         <li><a href="/organizations"><i class="material-icons">business</i>Organizations</a></li>
+                        <li><a href="/staff"><i class="material-icons">face</i>Staff</a></li>
                         <li><div class="divider"></div></li>
                         <li><a href="/account-settings"><i class="material-icons">settings</i>Account settings</a></li>
                         <li><a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="material-icons">power_settings_new</i>Logout</a></li>

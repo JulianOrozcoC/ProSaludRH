@@ -1,0 +1,14 @@
+#login, #login-message, #register{
+    .login-form{
+        padding-top: 20vh;
+    }
+    .login-logo{
+        padding: 5vh 2vh 0vh 0vh;
+    }
+    .password-label{
+        color: $primary-color;
+        i{
+            vertical-align: middle;
+        }
+    }
+}

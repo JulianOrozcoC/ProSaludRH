@@ -50,35 +50,6 @@ class OrganizationsController extends Controller
     }
     
     /**
-     * Store the user assignation to an organization.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function postAssignUser(Request $request)
-    {
-        $this->authorize('assign', Organization::class);
-        
-        $this->validate($request, [
-            'user' => 'required|exists:users,id',
-            'organization' => 'required|exists:organizations,id',
-        ]);
-        
-        try {
-            $user = User::findOrFail($request->get('user'));
-            $organization = Organization::findOrFail($request->get('organization'));
-            $organization->users()->save($user);
-        } catch (\Exception $e) {
-            app()->make("lern")->record($e);
-            return back()->withErrors(['Something went wrong assigning the user to the organization. Please try again.']);
-        }
-
-        Session::flash('flash_message', 'User "' . $user->name . '" successfully assigned to the organization ' . $organization->name . '!');
-        
-        return redirect('/organizations');
-    }
-    
-    /**
      * Delete the asset variant.
      *
      * @param  Request  $request

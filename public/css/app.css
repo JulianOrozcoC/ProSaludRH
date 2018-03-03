@@ -207,3 +207,27 @@ input {
   background-color: #6f42c1;
 }
 
+#login .login-form,
+#login-message .login-form,
+#register .login-form {
+  padding-top: 20vh;
+}
+
+#login .login-logo,
+#login-message .login-logo,
+#register .login-logo {
+  padding: 5vh 2vh 0vh 0vh;
+}
+
+#login .password-label,
+#login-message .password-label,
+#register .password-label {
+  color: #6f42c1;
+}
+
+#login .password-label i,
+#login-message .password-label i,
+#register .password-label i {
+  vertical-align: middle;
+}
+
