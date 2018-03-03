@@ -49,6 +49,14 @@ class OrganizationsController extends Controller
         return redirect('/organizations');
     }
     
+    public function getOrganizationInfo($id){
+        $data['organizationInfo'] = Organization::find($id);
+        return view('organizations.show', $data);
+    }
+
+    public function createUser(Request $request){
+        return $request;
+    }
     /**
      * Store the user assignation to an organization.
      *

@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/organizations', 'OrganizationsController@getIndex')->name('organizations');
-Route::get('/create', 'OrganizationsController@create');
-Route::get('/show/{id}', 'OrganizationsController@show');
+Route::post('/createUser', 'OrganizationsController@createUser');
+Route::get('/show/{id}', 'OrganizationsController@getOrganizationInfo');
 Route::post('/organizations', 'OrganizationsController@postIndex');
