@@ -35,6 +35,7 @@
                         </li>
                         <li><a href="/organizations"><i class="material-icons">business</i>Organizations</a></li>
                         <li><a href="/staff"><i class="material-icons">face</i>Staff</a></li>
+                        <li><a href="/credits"><i class="material-icons">attach_money</i>Credits</a></li>
                         <li><div class="divider"></div></li>
                         <li><a href="/account-settings"><i class="material-icons">settings</i>Account settings</a></li>
                         <li><a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="material-icons">power_settings_new</i>Logout</a></li>

@@ -22,5 +22,7 @@ Route::get('/organizations', 'OrganizationsController@getIndex')->name('organiza
 Route::post('/organizations', 'OrganizationsController@postIndex');
 Route::get('/staff', 'StaffController@getIndex')->name('staff');
 Route::post('/staff', 'StaffController@postIndex');
+Route::get('/credits', 'CreditsController@getIndex');
+Route::post('/credits', 'CreditsController@postCreate');
 Route::get('/create', 'OrganizationsController@create');
-Route::get('/show/{id}', 'OrganizationsController@show');
+Route::get('/show/{id}', 'OrganizationsController@showOrganizationInfo');

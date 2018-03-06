@@ -21,6 +21,12 @@ class OrganizationsController extends Controller
         return view('organizations.index', $data);
     }
 
+    public function showOrganizationInfo($id)
+    {
+        $data['organization'] = Organization::find($id);
+        return view('organizations.show', $data);
+    }
+
     /**
      * Store the organization.
      *

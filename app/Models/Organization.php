@@ -25,4 +25,9 @@ class Organization extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function tests()
+    {
+        return $this->belongsToMany(Test::class, 'credits')->withPivot('amount');
+    }
 }
