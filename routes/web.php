@@ -24,6 +24,7 @@ Route::get('/staff', 'StaffController@getIndex')->name('staff');
 Route::post('/staff', 'StaffController@postIndex');
 Route::get('/credits', 'CreditsController@getIndex');
 Route::get('/tests', 'TestsController@getIndex');
+Route::post('/tests', 'TestsController@postEditName');
 Route::post('/credits', 'CreditsController@postCreate');
 Route::get('/create', 'OrganizationsController@create');
 Route::get('/show/{id}', 'OrganizationsController@showOrganizationInfo');

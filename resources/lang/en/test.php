@@ -9,5 +9,5 @@ return [
 
     // test.blade
     'tests' => 'Tests',
-    'add_test' => 'Add Test'
+    'edit_test' => 'Edit Test Name'
 ];

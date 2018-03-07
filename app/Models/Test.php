@@ -9,6 +9,10 @@ use \Askedio\SoftCascade\Traits\SoftCascadeTrait;
 class Test extends Model
 {
 
+    protected $fillable = [
+        'name'
+    ];
+
     public function organization()
     {
         return $this->belongsToMany(Organization::class, 'credits')->withPivot('amount');
