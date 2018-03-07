@@ -23,7 +23,7 @@ class TestsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postEditName(Request $request)
+    public function postEditName(Request $request, $id)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -34,7 +34,7 @@ class TestsController extends Controller
             return back()->withErrors(['Test name already in use.']);
         }
 
-        $test = Test::find($request->get('name'));
+        $test = Test::find($id);
         $test->name = $request->input('name');
         $test->save();
 

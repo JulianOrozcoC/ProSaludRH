@@ -20,7 +20,7 @@
 																	<a href="/show/{{$test->id}}" class="right show-test tooltipped" data-tooltip="Show test">
 																		<i class="material-icons purple-text">info</i>
 																	</a> 
-                                  <a href="#edit-test-modal" class="modal-trigger right tooltipped" data-tooltip="Edit test" data-test-id="{{$test->id}}"><i class="material-icons">mode_edit</i></a>
+                                  <a href="#edit-test-modal" class="modal-trigger right tooltipped edit-test" data-tooltip="Edit test" data-test-id="{{$test->id}}"><i class="material-icons">mode_edit</i></a>
 																</div>
                                 <div class="collapsible-body">
                                     <ul class="collection">
@@ -66,4 +66,5 @@
 @endsection
 
 @section('scripts')
+<script src="{{asset('/js/test.js')}}"></script>
 @endsection
