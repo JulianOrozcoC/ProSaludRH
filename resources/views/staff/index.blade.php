@@ -24,6 +24,11 @@
                                 @else
                                     <img class="circle" src="/images/avatar.png" alt="">
                                 @endif
+                                @if($user->user_type == 1)
+                                <p><strong>Super Administrator</strong></p>
+                                @elseif($user->user_type == 2)
+                                <p><strong>Organization Administrator</strong></p>
+                                @endif
                                 <span class="title">{{$user->name}}</span>
                                 <p>{{$user->email}}</p>
                                 <p>{{$user->phone}}</p>
@@ -69,7 +74,16 @@
                         <label for="organization">Organization</label>
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="user_type" name="user_type" required>                        
+                            <option value="" disabled selected>Choose an user type</option>
+                            <option value="1">Super Administrator</option>   
+                            <option value="2">Organization Administrator</option>                        
+                        </select>
+                        <label for="user_type">User Type</label>
+                    </div>
+                </div>
                 <div class="modal-footer">
                     <a href="#!" class="red white-text  modal-action modal-close waves-effect waves-red btn-flat">@lang('common.close')</a>
                     <button type="submit" class="green white-text waves-effect waves-green btn-flat" style="margin-right:1rem;">@lang('common.add')</button>

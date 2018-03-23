@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'user_type', 'confirmed_on', 'organization_id',
     ];
 
     /**
@@ -46,5 +46,13 @@ class User extends Authenticatable
     public function testApplications()
     {
         return $this->hasMany(TestApplication::class);
+    }
+
+    /**
+     * Get the owning userable model.
+     */
+    public function userable()
+    {
+        return $this->morphTo();
     }
 }
