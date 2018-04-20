@@ -14,7 +14,7 @@
                                     <h3 class="primary-color-text">Password</h3>
                                 </div>
                             </div>
-                            <form role="form" method="POST" action="{{ url('/setPassword') }}">
+                            <form role="form" method="POST" action="{{ url('/setPassword', ['user' => $user->id]) }}">
                                 {{ csrf_field() }}
                                 <div class="row hidden">
                                     <div class="input-field col s12">
@@ -23,13 +23,13 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="password" name="password" type="password" class="validate">
+                                        <input id="password" name="password" type="password">
                                         <label for="password">Password</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="password_confirmation" name="password_confirmation" type="password" class="validate">
+                                        <input id="password_confirmation" name="password_confirmation" type="password">
                                         <label for="password_confirmation">Confirm Password</label>
                                     </div>
                                 </div>

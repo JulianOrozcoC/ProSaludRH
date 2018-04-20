@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Validator;
 
 class CreditsController extends Controller
 {
-    public function getIndex() {
+    public function getIndex()
+    {
         $data['organizations'] = Organization::with('tests')->get();
         $data['tests'] = Test::all();
         return view('credits.index', $data);
@@ -32,12 +33,10 @@ class CreditsController extends Controller
         try {
             $organization = Organization::findOrFail($request->input('organization'));
             $organization->tests()->attach($request->input('test'), ['amount' => $request->input('quantity')]);
-
         } catch (\Exception $e) {
             return back()->withErrors(['Something went wrong creating the credit. Please try again.']);
         }
 
         return redirect('/credits');
     }
-
 }

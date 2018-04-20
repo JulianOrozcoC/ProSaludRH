@@ -22,7 +22,7 @@ Route::get('/organizations', 'OrganizationsController@getIndex')->name('organiza
 Route::post('/organizations', 'OrganizationsController@postIndex');
 Route::post('/deleteOrganization', 'OrganizationsController@postDelete');
 Route::get('/staff', 'StaffController@getIndex')->name('staff');
-Route::post('/setPassword', 'StaffController@postPassword');
+Route::post('/setPassword/{user}', 'StaffController@postPassword');
 Route::post('/staff', 'StaffController@postIndex');
 Route::get('/credits', 'CreditsController@getIndex');
 Route::get('/tests', 'TestsController@getIndex');

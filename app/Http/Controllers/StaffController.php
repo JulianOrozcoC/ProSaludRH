@@ -70,9 +70,7 @@ class StaffController extends Controller
         // } catch (\Exception $e) {
         //     return back()->withErrors(['Something went wrong creating the user. Please try again.']);
         // }
- 
         Session::flash('flash_message', 'User "' . $user->email . '" added to staff!');
-         
         return redirect('/staff');
     }
 
@@ -80,27 +78,30 @@ class StaffController extends Controller
     {
         try {
             $this->validate($request, [
-             'password' => 'required|confirmed',
-             'password_confirmation' => 'required',
-        ]);
-            $user->password = $request->input('password');
+                'email' => 'required|min:6',
+                'password' => 'required|same:password',
+                'password_confirmation' => 'required',
+            ]);
+            $user->password = bcrypt($request->input('password'));
             $user->confirmed_on = Carbon::now();
             $user->save();
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return redirect('/login')->withErrors(['email' => 'The confirmation email link appears to be invalid.']);
         }
-        return redirect('/');
+
+        Session::flash('flash_message', 'Password successfully saved!');
+        return redirect('/login');
     }
 
     public function confirmationEmail($token)
     {
         try {
-            $user = User::where('email', Crypt::decrypt($token))->firstOrFail();
-            return view('auth.passwords.password', $user);
+            $data['user'] = User::where('email', Crypt::decrypt($token))->firstOrFail();
+            return view('auth.passwords.password', $data);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return redirect('/login')->withErrors(['email' => 'The confirmation email link appears to be invalid.']);
         }
-        return redirect('/');
+        return redirect('/login');
     }
 
     public function sendConfirmationEmail($userInfo)
