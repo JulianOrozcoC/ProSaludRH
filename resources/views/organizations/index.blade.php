@@ -21,7 +21,7 @@
 																	<a href="#delete-organization-modal" class="right modal-trigger delete-organization tooltipped" data-tooltip="Delete organization" data-organization-id="{{$organization->id}}">
 																		<i class="material-icons red-text">delete</i>
 																	</a>
-																	<a href="/show/{{$organization->id}}" class="right show-organization tooltipped" data-tooltip="Show organization">
+																	<a href="/organization/{{$organization->id}}" class="right show-organization tooltipped" data-tooltip="Show organization">
 																		<i class="material-icons purple-text">info</i>
 																	</a> 
 																</div>

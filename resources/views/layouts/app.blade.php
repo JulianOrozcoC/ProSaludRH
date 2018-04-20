@@ -33,8 +33,12 @@
                                 <a href="/account-settings"><span class="white-text email">{{\Auth::user()->email}}</span></a>
                             </div>
                         </li>
+                        @if(Auth::user()->user_type == 1)
                         <li><a href="/organizations"><i class="material-icons">business</i>Organizations</a></li>
-                        <li><a href="/staff"><i class="material-icons">face</i>Staff</a></li>
+                        @elseif(Auth::user()->user_type == 2)
+                        <li><a href="{{ url('organization', ['id' => Auth::user()->organization_id]) }}"><i class="material-icons">business</i>Organization</a></li>
+                        @endif
+                        <li><a href="/staff/"><i class="material-icons">face</i>Staff</a></li>
                         <li><a href="/credits"><i class="material-icons">attach_money</i>Credits</a></li>
                         <li><a href="/tests"><i class="material-icons">insert_drive_file</i>Tests</a></li>
                         <li><div class="divider"></div></li>

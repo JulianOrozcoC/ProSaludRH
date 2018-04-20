@@ -29,7 +29,7 @@ Route::get('/tests', 'TestsController@getIndex');
 Route::post('/editTest/{id}', 'TestsController@postEditName');
 Route::post('/credits', 'CreditsController@postCreate');
 Route::get('/create', 'OrganizationsController@create');
-Route::get('/show/{id}', 'OrganizationsController@showOrganizationInfo');
+Route::get('/organization/{id}', 'OrganizationsController@showOrganizationInfo');
 
 Route::get('/email-confirmation/{token}', [
     'as' => 'email-confirmation',

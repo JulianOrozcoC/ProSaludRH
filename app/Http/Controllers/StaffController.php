@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Session;
+use Auth;
 use Crypt;
+use Session;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Organization;
@@ -22,10 +23,26 @@ class StaffController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function getIndex(Request $request)
+    public function getIndex(Request $request, User $user)
     {
-        $data['users'] = User::all();
-        $data['organizations'] = Organization::orderBy('name')->get();
+        $user_type = Auth::user()->user_type;
+        $organization_id = Auth::user()->organization_id;
+        $users = User::all();
+        switch (true) {
+            case $user_type == 1:
+                $data['users'] = User::all();
+                $data['organizations'] = Organization::orderBy('name')->get();
+                $data['roles'] = Role::all();
+                break;
+            case $user_type == 2:
+                $data['users'] = User::where('organization_id', $organization_id)->get();
+                $data['organizations'] = Organization::where('id', $organization_id)->get();
+                $data['roles'] = Role::where('name', '!=', 'admin')->get();
+                break;
+            case $user_type == 3:
+                $data['users'] = [];
+                break;
+        }
             
         return view('staff.index', $data);
     }
