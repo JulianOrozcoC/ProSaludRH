@@ -30,6 +30,8 @@ Route::post('/editTest/{id}', 'TestsController@postEditName');
 Route::post('/credits', 'CreditsController@postCreate');
 Route::get('/create', 'OrganizationsController@create');
 Route::get('/organization/{id}', 'OrganizationsController@showOrganizationInfo');
+Route::post('/organization/{organization}', 'OrganizationsController@postEditOrganizationInfo');
+Route::post('/organization/delete/{organization}', 'OrganizationsController@postDeleteOrganization');
 
 Route::get('/email-confirmation/{token}', [
     'as' => 'email-confirmation',

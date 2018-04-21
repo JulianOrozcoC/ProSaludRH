@@ -54,6 +54,28 @@ class OrganizationsController extends Controller
         
         return redirect('/organizations');
     }
+
+    /**
+     * Store the organization.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function postEditOrganizationInfo(Request $request, Organization $organization)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:organizations',
+        ]);
+        try {
+            $organization->name = $request->get('name');
+            $organization->save();
+        } catch (\Exception $e) {
+            app()->make("lern")->record($e);
+            return back()->withErrors(['Something went wrong modifying the organization. Please try again.']);
+        }
+        Session::flash('flash_message', 'Organization successfully modified!');
+        return back();
+    }
     
     /**
      * Delete the asset variant.
@@ -62,20 +84,8 @@ class OrganizationsController extends Controller
      * @param  Organization  $organization
      * @return Response
      */
-    public function postDelete(Request $request, Organization $organization)
+    public function postDeleteOrganization(Request $request, Organization $organization)
     {
-        $this->authorize('delete', $organization);
-        
-        $organizationName = $organization->name;
-        try {
-            $organization->delete();
-        } catch (\Exception $e) {
-            app()->make("lern")->record($e);
-            return back()->withErrors(['Something went wrong deleting the organization. Please try again.']);
-        }
-
-        Session::flash('flash_message', 'Organization "' . $organizationName . '" successfully removed!');
-
-        return redirect('/organizations');
+        return $organization;
     }
 }

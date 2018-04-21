@@ -1,3 +1,5 @@
-$(".delete-organization").click(function () {
-  $('#delete-organization-modal form').attr('action', '/deleteOrganization/' + $(this).data('organization-id'));
-});
+$(document).ready(function () {
+    $(".delete-organization").click(function () {
+        $('#delete-organization-modal form').attr('action', '/organization/delete/' + $(this).data('organization-id'));
+    });
+})

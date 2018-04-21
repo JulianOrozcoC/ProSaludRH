@@ -16,6 +16,7 @@ class CreateOrganizationsTable extends Migration
         Schema::create('organizations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->boolean('activated')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });
