@@ -32,6 +32,9 @@ Route::get('/create', 'OrganizationsController@create');
 Route::get('/organization/{id}', 'OrganizationsController@showOrganizationInfo');
 Route::post('/organization/{organization}', 'OrganizationsController@postEditOrganizationInfo');
 Route::post('/organization/delete/{organization}', 'OrganizationsController@postDeleteOrganization');
+Route::get('/testApplications/{testApplication}','TestApplicationsController@getTest')->middleware('auth');
+Route::post('/testApplications/{testApplication}','TestApplicationsController@postTest')->middleware('auth');
+
 
 Route::get('/email-confirmation/{token}', [
     'as' => 'email-confirmation',
