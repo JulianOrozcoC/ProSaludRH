@@ -28,6 +28,6 @@ class Organization extends Model
 
     public function tests()
     {
-        return $this->belongsToMany(Test::class, 'credits')->withPivot('amount');
+        return $this->belongsToMany(Test::class, 'credits')->withPivot('amount')->withTimestamps();
     }
 }

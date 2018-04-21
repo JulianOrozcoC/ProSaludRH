@@ -31,6 +31,44 @@
                     </div>
                 </div>
             </div>
+            <div class="row grid">
+                <div class="col l6 m6 s12">
+                    <div class="bordered-card card border-red">
+                        <div class="card-content">
+                            {{--  test availables  --}}
+                            <div class="row">
+                                <p class="card-title col s12 center">Tests availables</p>
+                                <div class="collection" style="height: 300px; overflow-y:auto">
+                                    @foreach($organization->tests as $test)
+                                    <a class="collection-item">
+                                        <div class="s12 m4 l4"><b> Test Name: </b>{{$test->name}}</div>
+                                        <div class="s12 m8 l8"><b> Credits: </b>{{$test->pivot->amount}}</div>
+                                    </a>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l6 m6 s12">
+                    <div class="bordered-card card border-red">
+                        <div class="card-content">
+                            {{--  LAST BOUCHERS  --}}
+                            <div class="row">
+                                <p class="card-title col s12 center">Last boucher of credits</p>
+                                <div class="collection" style="height: 300px; overflow-y:auto">
+                                    @foreach($organization->tests as $test)
+                                    <a class="collection-item">
+                                        <div class="s12 m4 l4"><b> Test Name: </b>{{$test->name}}</div>
+                                        <div class="s12 m8 l8"><b> Credits: </b>{{$test->pivot->amount}}</div>
+                                    </a>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="fixed-action-btn">
@@ -90,5 +128,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{asset('/js/organization.js')}}"></script>
+<script src="{{asset('/js/organization.js')}}"></script>
 @endsection
