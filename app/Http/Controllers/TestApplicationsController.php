@@ -17,7 +17,7 @@ class TestApplicationsController extends Controller
     	$data=[];
     	$data['test'] = $testApplication->test;
     	$data['testApplication'] = $testApplication;
-    	$data['questions_test1'] = [
+    	$data['questions'] = [
     		"q1" => "1.    Mi trabajo me exige hacer mucho esfuerzo físico",
 	    	"q2" => "2.  Me preocupa sufrir un accidente en mi trabajo ",
 	    	"q3" => "3.	Considero que las actividades que realizo son peligrosas",
@@ -135,6 +135,7 @@ class TestApplicationsController extends Controller
                 'test_application_id' => $testApplication->id,
                 'user_id' => Auth::user()->id,
             ]);
+
 
       }	catch (\Exception $e) {
             return back()->withErrors(['Something went wrong creating the test application. Please try again.']);

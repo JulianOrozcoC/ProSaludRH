@@ -17,21 +17,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', 'HomeController@index')->name('dashboard');
-Route::get('/organizations', 'OrganizationsController@getIndex')->name('organizations');
-Route::post('/organizations', 'OrganizationsController@postIndex');
-Route::post('/deleteOrganization', 'OrganizationsController@postDelete');
-Route::get('/staff', 'StaffController@getIndex')->name('staff');
-Route::post('/setPassword/{user}', 'StaffController@postPassword');
-Route::post('/staff', 'StaffController@postIndex');
-Route::get('/credits', 'CreditsController@getIndex');
-Route::get('/tests', 'TestsController@getIndex');
-Route::post('/editTest/{id}', 'TestsController@postEditName');
-Route::post('/credits', 'CreditsController@postCreate');
-Route::get('/create', 'OrganizationsController@create');
-Route::get('/organization/{id}', 'OrganizationsController@showOrganizationInfo');
-Route::post('/organization/{organization}', 'OrganizationsController@postEditOrganizationInfo');
-Route::post('/organization/delete/{organization}', 'OrganizationsController@postDeleteOrganization');
+Route::get('/dashboard', 'HomeController@index')->name('dashboard')->middleware('auth');
+Route::get('/organizations', 'OrganizationsController@getIndex')->name('organizations')->middleware('auth');
+Route::post('/organizations', 'OrganizationsController@postIndex')->middleware('auth');
+Route::post('/deleteOrganization', 'OrganizationsController@postDelete')->middleware('auth');
+Route::get('/staff', 'StaffController@getIndex')->name('staff')->middleware('auth');
+Route::post('/setPassword', 'StaffController@postPassword')->middleware('auth');
+Route::post('/staff', 'StaffController@postIndex')->middleware('auth');
+Route::get('/credits', 'CreditsController@getIndex')->middleware('auth');
+Route::get('/tests', 'TestsController@getIndex')->middleware('auth');
+Route::post('/editTest/{id}', 'TestsController@postEditName')->middleware('auth');
+Route::post('/credits', 'CreditsController@postCreate')->middleware('auth');
+Route::get('/create', 'OrganizationsController@create')->middleware('auth');
+Route::get('/show/{id}', 'OrganizationsController@showOrganizationInfo')->middleware('auth');
 Route::get('/testApplications/{testApplication}','TestApplicationsController@getTest')->middleware('auth');
 Route::post('/testApplications/{testApplication}','TestApplicationsController@postTest')->middleware('auth');
 

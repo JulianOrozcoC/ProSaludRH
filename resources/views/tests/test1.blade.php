@@ -10,7 +10,7 @@
             <div class="container">
                 <form method="POST" > 
                 {{ csrf_field() }}
-                @foreach($questions_test1 as $questionName => $question)
+                @foreach($questions as $questionName => $question)
 
                 <p class="question">{{$question}}</p>
                 <ul class="answers">

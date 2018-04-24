@@ -12,9 +12,6 @@ class TestTableSeeder extends Seeder
      */
     public function run()
     {
-        $test = Test::Create([
-            'name' => 'Test 1',
-            'type' => 1
-        ]);
+        $test = Test::Create(['name' => 'Test 1','type' => 1]);
     }
 }
