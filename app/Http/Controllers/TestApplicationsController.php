@@ -177,7 +177,6 @@ class TestApplicationsController extends Controller
                     case 5:
                         $toAdd = 0;
                         break;
-                    
                 }
             }
             if (in_array($response->question_number, Config::get('questions')['grading1'][0])) {

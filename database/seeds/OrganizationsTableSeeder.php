@@ -13,7 +13,5 @@ class OrganizationsTableSeeder extends Seeder
     public function run()
     {
         $organization = Organization::create(['name' => 'Aviato']);
-        $organization = Organization::create(['name' => 'ProSalud']);
-        $organization = Organization::create(['name' => 'AVIATO2']);
     }
 }
