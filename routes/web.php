@@ -18,12 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard')->middleware('auth');
+Route::get('/account-settings', 'AccountController@getIndex')->name('account-settings')->middleware('auth');
+Route::post('/account-settings', 'AccountController@postIndex');
 Route::get('/organizations', 'OrganizationsController@getIndex')->name('organizations')->middleware('auth');
 Route::post('/organizations', 'OrganizationsController@postIndex')->middleware('auth');
 Route::post('/deleteOrganization', 'OrganizationsController@postDelete')->middleware('auth');
 Route::get('/staff', 'StaffController@getIndex')->name('staff')->middleware('auth');
-Route::post('/setPassword', 'StaffController@postPassword')->middleware('auth');
+Route::post('/setPassword/{user}', 'StaffController@postPassword');
 Route::post('/staff', 'StaffController@postIndex')->middleware('auth');
+Route::post('/staff/delete/{user}', 'StaffController@deleteUser')->middleware('auth');
 Route::get('/credits', 'CreditsController@getIndex')->middleware('auth');
 Route::get('/tests', 'TestsController@getIndex')->middleware('auth');
 Route::post('/editTest/{id}', 'TestsController@postEditName')->middleware('auth');

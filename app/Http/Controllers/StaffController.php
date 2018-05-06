@@ -47,6 +47,18 @@ class StaffController extends Controller
         return view('staff.index', $data);
     }
 
+    public function deleteUser(Request $request, User $user)
+    {
+        $user_type = Auth::user()->user_type;
+        $userId = $user->id;
+        $userOrgId = $user->organization_id;
+
+        if($user_type == 3) {
+            return back()->withErrors(["This user doesn't have that privilege."]);
+        }
+        return $userOrgId;
+    }
+
     /**
       * Store the user.
       *
