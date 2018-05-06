@@ -33,14 +33,21 @@
                                 <a href="/account-settings"><span class="white-text email">{{\Auth::user()->email}}</span></a>
                             </div>
                         </li>
-                        @if(Auth::user()->user_type == 1)
+                        <li><a href="/dashboard"><i class="material-icons">dashboard</i>Dashboard</a></li>
+                        @if(Auth::user()->hasRole('admin'))
                         <li><a href="/organizations"><i class="material-icons">business</i>Organizations</a></li>
-                        @elseif(Auth::user()->user_type == 2)
-                        <li><a href="{{ url('organization', ['id' => Auth::user()->organization_id]) }}"><i class="material-icons">business</i>Organization</a></li>
-                        @endif
                         <li><a href="/staff/"><i class="material-icons">face</i>Staff</a></li>
                         <li><a href="/credits"><i class="material-icons">attach_money</i>Credits</a></li>
                         <li><a href="/tests"><i class="material-icons">insert_drive_file</i>Tests</a></li>
+                        <li><a href="/credits/assignation"><i class="material-icons">attach_money</i>Credits assignation</a></li>
+                        <li><a href="/activeapplications"><i class="material-icons">insert_drive_file</i>Active applications</a></li>
+                        <li><a href="/completedapplications"><i class="material-icons">done</i>Completed applications</a></li>
+                        @endif
+                        @if(Auth::user()->hasRole('organization admin'))
+                        <li><a href="/credits/assignation"><i class="material-icons">attach_money</i>Credits assignation</a></li>
+                        <li><a href="/activeapplications"><i class="material-icons">insert_drive_file</i>Active applications</a></li>
+                        <li><a href="/completedapplications"><i class="material-icons">done</i>Completed applications</a></li>
+                        @endif
                         <li><div class="divider"></div></li>
                         <li><a href="/account-settings"><i class="material-icons">settings</i>Account settings</a></li>
                         <li><a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="material-icons">power_settings_new</i>Logout</a></li>
@@ -77,7 +84,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{asset('/js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="{{asset('/js/jquery-ui.min.js')}}"></script>
     <script src="{{asset('/js/materialize.min.js')}}"></script>
     <script src="{{asset('/js/materialize.clockpicker.js')}}"></script>

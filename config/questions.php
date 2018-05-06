@@ -1980,4 +1980,10 @@ return [
         'q185' => 'required|between:1,3',
 
     ],
+    "grading1" => [
+        [2, 1, 3], //ambiente de trabajo
+        [4, 9, 5, 6, 7, 8, 41, 42, 43, 10, 11, 12, 13, 20, 21, 22, 18, 19, 26, 27], // factores actividad
+        [14, 15, 16, 17], // organizacion
+        [23, 24, 25, 28, 29, 30, 31, 32, 44, 45, 46, 33, 34, 35, 36, 37, 38, 39, 40], // organizacion
+    ]
 ];

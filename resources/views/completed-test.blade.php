@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <h2 class="header white-text col s12">Assigned test applcations</h2>
+<h2 class="header white-text col s12">{{$testApplication->test->name}} for {{ $testApplication->user->name }}</h2>
 @endsection
 
 @section('content')
@@ -11,25 +11,20 @@
                 <br>
 
                 {{-- EVENTS SECTION --}}
-                @if(count($apps) > 0)
+                @if(count($gradings) > 0)
 
                     <div class="row grid">
-                        @foreach($apps as $app)
+                        @foreach($gradings as $key =>$grading)
                             <div class="col s12 m3 l3 grid-item">
-                                <a href="/testApplications/{{$app->id}}">
                                 <div class="card white hoverable">
                                     <div class="card-content center ">
-                                        <h5 class="primary-color-text">{{$app->test->name}}</h5>
+                                        <h5 class="primary-color-text">{{$key}}</h5>
+                                        <p >{{$grading}}</p>
                                     </div>
                                 </div>
-                                </a>
                             </div>
                         @endforeach
                     </div>
-
-                @else
-                    <br><br><br>
-                    <h4 class="center-align grey-text">No active test applications</h4>
                 @endif
 
             </div>

@@ -25,13 +25,18 @@ Route::get('/staff', 'StaffController@getIndex')->name('staff')->middleware('aut
 Route::post('/setPassword', 'StaffController@postPassword')->middleware('auth');
 Route::post('/staff', 'StaffController@postIndex')->middleware('auth');
 Route::get('/credits', 'CreditsController@getIndex')->middleware('auth');
+Route::get('/credits/assignation', 'CreditsController@creditsAssignation')->middleware('auth');
+Route::post('/credits/assignation', 'CreditsController@postCreditsAssignation')->middleware('auth');
 Route::get('/tests', 'TestsController@getIndex')->middleware('auth');
 Route::post('/editTest/{id}', 'TestsController@postEditName')->middleware('auth');
 Route::post('/credits', 'CreditsController@postCreate')->middleware('auth');
 Route::get('/create', 'OrganizationsController@create')->middleware('auth');
 Route::get('/show/{id}', 'OrganizationsController@showOrganizationInfo')->middleware('auth');
-Route::get('/testApplications/{testApplication}','TestApplicationsController@getTest')->middleware('auth');
-Route::post('/testApplications/{testApplication}','TestApplicationsController@postTest')->middleware('auth');
+Route::get('/testApplications/{testApplication}', 'TestApplicationsController@getTest')->middleware('auth');
+Route::get('/completed-test/{testApplication}', 'TestApplicationsController@getCompleted')->middleware('auth');
+Route::post('/testApplications/{testApplication}', 'TestApplicationsController@postTest')->middleware('auth');
+Route::get('/activeapplications', 'TestApplicationsController@getActive')->middleware('auth');
+Route::get('/completedapplications', 'TestApplicationsController@getAllComplete')->middleware('auth');
 
 
 Route::get('/email-confirmation/{token}', [

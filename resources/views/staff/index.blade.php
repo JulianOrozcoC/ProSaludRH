@@ -28,6 +28,8 @@
                         <p><strong>Super Administrator</strong></p>
                         @elseif($user->user_type == 2)
                         <p><strong>Organization Administrator</strong></p>
+                        @else
+                        <p><strong>User</strong></p>
                         @endif
                         <span class="title">{{$user->name}}</span>
                         <p>{{$user->email}}</p>

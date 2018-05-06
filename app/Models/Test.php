@@ -9,18 +9,17 @@ use App\Models\TestApplication;
 
 class Test extends Model
 {
-
     protected $fillable = [
         'name'
     ];
 
-    public function organization()
+    public function organizations()
     {
         return $this->belongsToMany(Organization::class, 'credits')->withPivot('amount');
     }
 
     public function testAplications()
     {
-    	return $this->hasMany(TestApplication::class);
+        return $this->hasMany(TestApplication::class);
     }
 }

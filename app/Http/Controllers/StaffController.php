@@ -81,7 +81,9 @@ class StaffController extends Controller
             
         $organization = Organization::findOrFail($request->get('organization'));
         $organization->users()->save($user);
+
         $user->save();
+        $user->assignRole($request->get('user_type'));
         $this->sendConfirmationEmail($user);
 
         // } catch (\Exception $e) {

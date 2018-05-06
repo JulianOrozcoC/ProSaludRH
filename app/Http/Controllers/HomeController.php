@@ -24,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $data['apps'] = \Auth::user()->testApplications()->active()->get();
+        
+        return view('dashboard', $data);
     }
 }
