@@ -1,3 +1,5 @@
-$(".delete-staff").click(function () {
-    $('#delete-staff-modal form').attr('action', '/staff/delete/' + $(this).data('staff-id'));
-});
+$(document).ready(function () {
+    $(".delete-user").click(function () {
+        $('#delete-user-modal form').attr('action', '/staff/delete/' + $(this).data('user-id'));
+    });
+})

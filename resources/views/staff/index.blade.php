@@ -19,6 +19,7 @@
                 <ul class="collection">
                     @foreach($users as $user)
                     <li class="collection-item avatar">
+                        <a class="delete-user modal-trigger right" href="#delete-user-modal" data-user-id="{{$user->id}}" ><i class="material-icons red-text">delete</i></a>
                         @if($user->photo_url != null)
                         <img class="circle" src="/uploads/avatars/{{$user->photo_url}}" alt="">
                         @else
@@ -51,6 +52,18 @@
         </ul>
     </div>
 </div>
+<div id="delete-user-modal" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Are you sure you want to delete the user?</h4>
+        </div>
+        <div class="modal-footer">
+            <form method="POST" action="">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <a class="modal-action modal-close waves-effect waves-blue btn-flat blue white-text">@lang('common.nevermind')</a>
+                <button type="submit" class="modal-action modal-close waves-effect waves-red btn-flat red white-text">@lang('common.yes')</button>
+            </form>
+        </div>
+    </div>
 <div id="add-staff-modal" class="modal">
     <div class="modal-content">
         <form class="col s12" role="form" method="POST">
