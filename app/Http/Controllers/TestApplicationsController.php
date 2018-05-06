@@ -34,7 +34,6 @@ class TestApplicationsController extends Controller
             case 5:
                 $data['questions'] = Config::get('questions')['test5'];
                 break;
-            
             default:
                 return redirect('/');
                 break;
