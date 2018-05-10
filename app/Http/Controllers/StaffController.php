@@ -155,10 +155,11 @@ class StaffController extends Controller
     {
         $encrypt_token = Crypt::encrypt($userInfo->email);
         $url = route('email-confirmation', ['token' => $encrypt_token]);
-        Mail::send([], [], function ($message) use ($userInfo, $url) {
+        $messageBody1 = "Welcome to Empire!".PHP_EOL."Your email: ". $userInfo->email." has been registered into our platform!".PHP_EOL."Please click on the link below to set your password.";
+        Mail::send([], [], function ($message) use ($userInfo, $url, $messageBody1) {
             $message->from('noreply@myapp.com', 'MyApp');
             $message->to($userInfo['email'])->subject('Confirmation Email');
-            $message->setbody($url);
+            $message->setbody($messageBody1. PHP_EOL . $url);
         });
     }
 }

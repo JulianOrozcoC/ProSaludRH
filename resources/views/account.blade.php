@@ -29,7 +29,7 @@
                     </div>
                     
                     <div class="input-field col s12 l6">
-                        <select id="gender" name="gender" required>
+                        <select id="gender" name="gender">
                             @if(Auth::user()->gender)
                             <option value="{{\Auth::user()->gender}}" selected>{{Auth::user()->gender}}</option>
                             @else
@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="input-field col s12 l6">
-                        <select id="status" name="status" required>
+                        <select id="status" name="status">
                             @if(Auth::user()->status)
                             <option value="{{\Auth::user()->status}}" selected>{{Auth::user()->status}}</option>
                             @else
