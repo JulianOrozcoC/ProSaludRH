@@ -11,11 +11,11 @@ html {
 }
 
 .primary-color {
-  background-color: #6f42c1;
+  background-color: #3D205A;
 }
 
 .primary-color-text {
-  color: #6f42c1;
+  color: #3D205A;
 }
 
 .primary-text {
@@ -127,7 +127,7 @@ nav .brand-logo {
 
 .dropdown-content li > a,
 .dropdown-content li > span {
-  color: #6f42c1;
+  color: #3D205A;
 }
 
 input:not([type]):focus:not([readonly]),
@@ -143,9 +143,9 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #6f42c1;
-  -webkit-box-shadow: 0 1px 0 0 #6f42c1;
-          box-shadow: 0 1px 0 0 #6f42c1;
+  border-bottom: 1px solid #3D205A;
+  -webkit-box-shadow: 0 1px 0 0 #3D205A;
+          box-shadow: 0 1px 0 0 #3D205A;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -161,21 +161,21 @@ input[type=tel]:focus:not([readonly]) + label,
 input[type=number]:focus:not([readonly]) + label,
 input[type=search]:focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #6f42c1;
+  color: #3D205A;
 }
 
 .primary-button,
 .primary-button:hover,
 .primary-button:focus {
-  background-color: #6f42c1;
+  background-color: #3D205A;
 }
 
 .pagination li.active {
-  background-color: #6f42c1;
+  background-color: #3D205A;
 }
 
 .spinner-primary-color-only {
-  border-color: #6f42c1;
+  border-color: #3D205A;
 }
 
 .preloader {
@@ -195,7 +195,7 @@ input {
 }
 
 .input-field .prefix.active {
-  color: #6f42c1;
+  color: #3D205A;
 }
 
 .autocomplete-content li span {
@@ -203,8 +203,8 @@ input {
 }
 
 [type="checkbox"].filled-in:checked + label:after {
-  border: 2px solid #6f42c1;
-  background-color: #6f42c1;
+  border: 2px solid #3D205A;
+  background-color: #3D205A;
 }
 
 #login .login-form,
@@ -222,7 +222,7 @@ input {
 #login .password-label,
 #login-message .password-label,
 #register .password-label {
-  color: #6f42c1;
+  color: #3D205A;
 }
 
 #login .password-label i,

@@ -577,7 +577,7 @@ return [
                 "answer3" => "Asistir a un retiro organizado por la iglesia.",
                 "answer4" => "Visitar un lugar que no conoce, en compañía de su familia.",
                 ],
-        "q17" => [ "question" => "17.   La familia de pero tiene un hijo drogadicto y es amigo de su hijo desde pequeño, al saberlo usted",
+        "q17" => [ "question" => "17.   La familia de su vecino tiene un hijo drogadicto y es amigo de su hijo desde pequeño, al saberlo usted",
                 "answer1" => "Le pide a su hijo que no lo vuelva a ver.",
                 "answer2" => "Le sugiere a su familia que lo lleven a Centros de Integración Juvenil para que lo ayuden.",
                 "answer3" => "Si el muchacho ya es drogadicto le pide le obsequie un reloj que tanto le gusta a su hijo para no decírselo a sus padres.",
@@ -1769,6 +1769,7 @@ return [
         'q48' => 'required|between:1,4',
     ],
 
+
     "rules4" => [
         'q1' => 'required|between:1,4',
         'q2' => 'required|between:1,4',
@@ -1784,12 +1785,13 @@ return [
         'q12' => 'required|between:1,4',
         'q13' => 'required|between:1,4',
         'q14' => 'required|between:1,4',
-        'q14' => 'required|between:1,4',
+        'q15' => 'required|between:1,4',
         'q16' => 'required|between:1,4',
         'q17' => 'required|between:1,4',
         'q18' => 'required|between:1,4',
         'q19' => 'required|between:1,4',
         'q20' => 'required|between:1,4',
+        
     ],
 
     "rules5" => [
@@ -2004,6 +2006,16 @@ return [
         [11, 20, 26, 54, 80, 106, 108, 132], //subescala 15
         [55, 61, 72, 98, 119], // interpersonal calculo auxiliar
         [11, 20, 23, 31, 35, 62, 88, 108], // puntaje directo del cociente emocional calculo auxiliar
+    ],
+    "grading4" => [
+        [9,16, 21, 30, 34, 46, 49, 60, 68, 73 ], //Moralidad
+        [10, 15, 22, 29, 33, 48, 50, 59, 66, 76], //Legalidad
+        [11, 13, 24, 31, 36, 45, 51, 58, 65, 74 ], //Indiferencia
+        [12, 14, 23, 32, 35, 47, 52, 57, 67, 75 ], //Corrupcion
+        [3, 7, 20, 26, 37, 41, 53, 61, 70, 77 ], //Economico
+        [2, 8, 18, 27, 38, 44, 56, 62, 71, 78 ], //Politico
+        [1, 6, 17, 25, 40, 42, 55, 64, 72, 80 ], //Social
+        [4, 5, 19, 28, 39, 43, 54, 63, 69, 90 ], //Religioso
     ],
 
 ];

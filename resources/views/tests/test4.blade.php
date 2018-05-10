@@ -15,20 +15,21 @@
                 <p class="question">{{$question["question"]}}</p>
                 <ul class="answers">
                 <p>
-                    <input class="with-gap" name="{{$questionName}}" value="1" type="radio" id="question-{{$questionName}}-1" />
-                    <label for="question-{{$questionName}}-1">{{$question["answer1"]}}</label>
+                    <label style="font-size:1rem">{{$question["answer1"]}}</label>
+                    <input style="width: 5%" name="{{$questionName}}[]" type="number" min="1" max="4" id="question-{{$questionName}}-1" />
+                    
                 </p>
                 <p>
-                    <input class="with-gap" name="{{$questionName}}" value="2" type="radio" id="question-{{$questionName}}-2" />
-                    <label for="question-{{$questionName}}-2">{{$question["answer2"]}}</label>
+                   <label style="font-size:1rem">{{$question["answer2"]}}</label>
+                    <input style="width: 5%" name="{{$questionName}}[]" type="number" min="1" max="4" id="question-{{$questionName}}-2" />
                 </p>
                 <p>
-                    <input class="with-gap" name="{{$questionName}}" value="3" type="radio" id="question-{{$questionName}}-3" />
-                    <label for="question-{{$questionName}}-3">{{$question["answer3"]}}</label>
+                   <label style="font-size:1rem" >{{$question["answer3"]}}</label>
+                    <input style="width: 5%" name="{{$questionName}}[]" type="number" min="1" max="4" id="question-{{$questionName}}-3" />
                 </p>
                 <p>
-                    <input class="with-gap" name="{{$questionName}}" value="4" type="radio" id="question-{{$questionName}}-4" />
-                    <label for="question-{{$questionName}}-4">{{$question["answer4"]}}</label>
+                   <label style="font-size:1rem" >{{$question["answer4"]}}</label>
+                    <input style="width: 5%" name="{{$questionName}}[]" type="number" min="1" max="4" id="question-{{$questionName}}-4" />
                 </p>
                 
                 </ul>
