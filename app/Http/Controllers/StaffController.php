@@ -156,8 +156,8 @@ class StaffController extends Controller
         $encrypt_token = Crypt::encrypt($userInfo->email);
         $url = route('email-confirmation', ['token' => $encrypt_token]);
         Mail::send([], [], function ($message) use ($userInfo, $url) {
-            $message->from('noreply@myapp.com', 'MyApp');
-            $message->to($userInfo['email'])->subject('Confirmation Email');
+            $message->from('noreply@imperia.com', 'Imperia');
+            $message->to($userInfo['email'])->subject('Password setup');
             $message->setbody($url);
         });
     }

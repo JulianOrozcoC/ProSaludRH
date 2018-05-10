@@ -31,7 +31,7 @@
 
                 @endforeach
                
-                <button type="submit">
+                <button type="submit" class="btn btn-large">
                     Submit
                 </button>
         

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
@@ -27,6 +25,7 @@ Route::get('/staff', 'StaffController@getIndex')->name('staff')->middleware('aut
 Route::post('/setPassword/{user}', 'StaffController@postPassword');
 Route::post('/staff', 'StaffController@postIndex')->middleware('auth');
 Route::post('/staff/delete/{user}', 'StaffController@deleteUser')->middleware('auth');
+Route::get('/my-credits', 'CreditsController@getMyCredits')->middleware('auth');
 Route::get('/credits', 'CreditsController@getIndex')->middleware('auth');
 Route::get('/credits/assignation', 'CreditsController@creditsAssignation')->middleware('auth');
 Route::post('/credits/assignation', 'CreditsController@postCreditsAssignation')->middleware('auth');

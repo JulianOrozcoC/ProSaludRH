@@ -40,7 +40,7 @@ class TestApplicationsController extends Controller
                 break;
             case 4:
                 $data['questions'] = Config::get('questions')['test4'];
-                $data['respuestas'] = Config::get('questions')['test4-Respuestas'];
+                $data['respuestas'] = Config::get('questions')['test4'];
                 break;
             case 5:
                 $data['questions'] = Config::get('questions')['test5'];
