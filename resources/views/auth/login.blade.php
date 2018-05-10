@@ -11,7 +11,7 @@
                             <div class="row login-logo">
                                 <div class="container center">
                                     {{--  <img src="https://scontent.fmfe1-1.fna.fbcdn.net/v/t1.0-9/12509824_1051764521511287_9090022779093199900_n.png?_nc_eui2=v1%3AAeGkqvGm4dQwJOTcMsXs4Fbcf7h9SWDyBn4XW5e3XO-iYaHz9ZRY0irOZg14MeKzSGynIkeS3-b47t8OpaFmjfV3lvknxbLGYnDhewY2VNjRpQ&oh=bc40d882b9abaecc0d59757a401470c7&oe=5B09E36D" class="responsive-img">  --}}
-                                    <h3 class="primary-color-text">Pro Salud</h3>
+                                    <h3 class="primary-color-text">Imperia</h3>
                                 </div>
                             </div>
                             <form role="form" method="POST" action="{{ url('/login') }}">

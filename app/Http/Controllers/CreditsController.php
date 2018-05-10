@@ -19,6 +19,12 @@ class CreditsController extends Controller
         $data['tests'] = Test::all();
         return view('credits.index', $data);
     }
+    
+    public function getMyCredits()
+    {
+        $data['tests'] = \Auth::user()->organization->tests;
+        return view('my-credits', $data);
+    }
 
     public function postCreate(Request $request)
     {

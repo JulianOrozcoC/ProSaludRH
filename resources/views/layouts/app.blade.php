@@ -45,6 +45,7 @@
                         @endif
                         @if(Auth::user()->hasRole('organization admin'))
                         <li><a href="/staff/"><i class="material-icons">face</i>Staff</a></li>
+                        <li><a href="/my-credits"><i class="material-icons">attach_money</i>My credits</a></li>                        
                         <li><a href="/credits/assignation"><i class="material-icons">attach_money</i>Credits assignation</a></li>
                         <li><a href="/activeapplications"><i class="material-icons">insert_drive_file</i>Active applications</a></li>
                         <li><a href="/completedapplications"><i class="material-icons">done</i>Completed applications</a></li>
@@ -57,14 +58,8 @@
                         </form>
                     </ul>
                     <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
-                    <a href="/" class="brand-logo left hide-on-small-only">Segamac</a>
-                    <form id="search-form" role="form" method="GET" action="{{ url('/search') }}" autocomplete="on">
-                        <div id="search-input-field" class="input-field">
-                            <input id="search" type="search" placeholder="Search..." name="query" required value="{{\Request::get('query')}}">
-                            <label class="label-icon" for="query"><i class="material-icons">search</i></label>
-                            <i class="material-icons">close</i>
-                        </div>
-                    </form>
+                    <a href="/" class="brand-logo left hide-on-small-only">{{ config('app.name') }}</a>
+                    
                 </div>
             </nav>
         </div>

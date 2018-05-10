@@ -40,6 +40,7 @@ class TestApplicationsController extends Controller
                 break;
             case 4:
                 $data['questions'] = Config::get('questions')['test4'];
+                $data['respuestas'] = Config::get('questions')['test4'];
                 break;
             case 5:
                 $data['questions'] = Config::get('questions')['test5'];
@@ -54,11 +55,13 @@ class TestApplicationsController extends Controller
     }
     public function postTest(TestApplication $testApplication, Request $request)
     {
+        //dd($request->all());
         $rules = '';
         $questions = '';
         if ($testApplication->completed_on) {
             return view('completed-test', $data);
         }
+        $flag = false;
         switch ($testApplication->test->id) {
                 case 1:
                 $rules = Config::get('questions')['rules1'];
@@ -79,6 +82,7 @@ class TestApplicationsController extends Controller
                 $rules = Config::get('questions')['rules4'];
                 $questions = Config::get('questions')['test4'];
                 $this->validate($request, $rules);
+                $flag = 4;
                 break;
                 case 5:
                 $rules = Config::get('questions')['rules5'];
@@ -91,17 +95,44 @@ class TestApplicationsController extends Controller
                 break;
         }
         try {
+            $counter =1;
             foreach ($questions as $key => $question) {
                 if ($testApplication->test->id > 2) {
                     $question = $question['question'];
+
                 }
-                Response::create([
-                    'question_number' => substr($key, 1),
-                    'question' => $question,
-                    'answer' => $request->get($key),
-                    'test_application_id' => $testApplication->id,
-                    'user_id' => Auth::user()->id,
-                ]);
+
+                if( !$flag ){
+                     Response::create([
+                        'question_number' => substr($key, 1),
+                        'question' => $question,
+                        'answer' => $request->get($key),
+                        'test_application_id' => $testApplication->id,
+                        'user_id' => Auth::user()->id,
+                    ]);
+                }
+                else{
+                    switch ($flag) {
+                        case 4:
+                            
+                            foreach ($request->get($key) as $value) {
+                                 Response::create([
+                                    'question_number' => $counter,
+                                    'question' => $question,
+                                    'answer' => $value,
+                                    'test_application_id' => $testApplication->id,
+                                    'user_id' => Auth::user()->id,
+                                ]);
+                                 $counter ++;
+                            }
+                            break;
+                        
+                        default:
+                            # code...
+                            break;
+                    }
+                }
+
             }
             $testApplication->completed_on = \Carbon\Carbon::now();
             $testApplication->save();
@@ -149,7 +180,17 @@ class TestApplicationsController extends Controller
         elseif ($testApplication->test->id == 2){
             $data['gradings'] = $this->grade2($testApplication);
         }
-        
+        elseif ($testApplication->test->id == 3){
+            $data['gradings'] = $this->grade3($testApplication);
+        }
+
+         elseif ($testApplication->test->id == 4){
+            $data['gradings'] = $this->grade4($testApplication);
+        } 
+        elseif ($testApplication->test->id == 5){
+            $data['gradings'] = $this->grade5($testApplication);
+        } 
+
         $data['testApplication'] = $testApplication;
         return view('completed-test', $data);
     }
@@ -340,4 +381,97 @@ class TestApplicationsController extends Controller
 
         return $gradings;
     }
+      public function grade4($testApplication)
+    {   
+        // Zavic
+        // Categorias de resultados del test (Intereses y Valores)
+        $gradings["Moralidad"] = 0;
+        $gradings["Legalidad"] = 0;
+        $gradings["Indiferencia"] = 0;
+        $gradings["Corrupcion"] = 0;
+        $gradings["Economico"]=0;
+        $gradings["Politico"]=0;
+        $gradings["Social"]=0;
+        $gradings["Religioso"]=0;
+
+        // Revisar resultados del test
+        foreach ($testApplication->responses as $response) {
+         
+            if (in_array($response->question_number, Config::get('questions')['grading4'][0])) {
+                $gradings["Moralidad"] += $response->answer;
+            }
+            if (in_array($response->question_number, Config::get('questions')['grading4'][1])) {
+                $gradings["Legalidad"] += $response->answer;
+            }
+            if (in_array($response->question_number, Config::get('questions')['grading4'][2])) {
+                $gradings["Indiferencia"] += $response->answer;
+            }
+            if (in_array($response->question_number, Config::get('questions')['grading4'][3])) {
+                $gradings["Corrupcion"] += $response->answer;
+            } 
+            if (in_array($response->question_number, Config::get('questions')['grading4'][4])) {
+                $gradings["Economico"] += $response->answer;
+            } 
+            if (in_array($response->question_number, Config::get('questions')['grading4'][5])) {
+                $gradings["Politico"] += $response->answer;
+            } 
+            if (in_array($response->question_number, Config::get('questions')['grading4'][6])) {
+                $gradings["Social"] += $response->answer;
+            }
+            if (in_array($response->question_number, Config::get('questions')['grading4'][7])) {
+                $gradings["Religioso"] += $response->answer;
+            }  
+        }
+
+        $gradings["Moralidad"] = ($gradings["Moralidad"]/40)*100;
+        $gradings["Legalidad"] = ($gradings["Legalidad"]/40)*100;
+        $gradings["Indiferencia"] = ($gradings["Indiferencia"]/40)*100;
+        $gradings["Corrupcion"] = ($gradings["Corrupcion"]/40)*100;
+        $gradings["Economico"] = ($gradings["Economico"]/40)*100;
+        $gradings["Politico"] = ($gradings["Politico"]/40)*100;
+        $gradings["Social"] = ($gradings["Social"]/40)*100;
+        $gradings["Religioso"] = ($gradings["Religioso"]/40)*100;
+
+
+        return $gradings;
+    }
+
+     public function grade3($testApplication)
+    {   
+        // Zavic
+        // Categorias de resultados del test (Intereses y Valores)
+        $gradings["Dominante"] = 0;
+        $gradings["Influyente"] = 0;
+        $gradings["Estable"] = 0;
+        $gradings["Conciente"] = 0;
+       
+
+        return $gradings;
+    }
+
+    public function grade5($testApplication)
+    {   
+        // Zavic
+        // Categorias de resultados del test (Intereses y Valores)
+        $gradings["Afabilidad"] = 0;
+        $gradings["Razonamiento"] = 0;
+        $gradings["Estabilidad"] = 0;
+        $gradings["Dominancia"] = 0;
+        $gradings["Animacion"] = 0;
+        $gradings["Normas"] = 0;
+        $gradings["Atrevimiento"] = 0;
+        $gradings["Sensibilidad"] = 0;
+        $gradings["Vigilancia"] = 0;
+        $gradings["Abstraccion"] = 0;
+        $gradings["Privacidad"] = 0;
+        $gradings["Aprension"] = 0;
+        $gradings["Autosuficiencia"] = 0;
+        $gradings["Perfeccionismo"] = 0;
+        $gradings["Apertura Cambio"] = 0;
+        $gradings["Tension"] = 0;
+       
+
+        return $gradings;
+    }
+
 }
