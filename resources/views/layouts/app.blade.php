@@ -57,7 +57,7 @@
                         </form>
                     </ul>
                     <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
-                    <a href="/" class="brand-logo left hide-on-small-only">Segamac</a>
+                    <a href="/" class="brand-logo left hide-on-small-only">{{ config('app.name') }}</a>
                     
                 </div>
             </nav>
