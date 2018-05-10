@@ -58,13 +58,7 @@
                     </ul>
                     <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
                     <a href="/" class="brand-logo left hide-on-small-only">Segamac</a>
-                    <form id="search-form" role="form" method="GET" action="{{ url('/search') }}" autocomplete="on">
-                        <div id="search-input-field" class="input-field">
-                            <input id="search" type="search" placeholder="Search..." name="query" required value="{{\Request::get('query')}}">
-                            <label class="label-icon" for="query"><i class="material-icons">search</i></label>
-                            <i class="material-icons">close</i>
-                        </div>
-                    </form>
+                    
                 </div>
             </nav>
         </div>
