@@ -44,6 +44,7 @@
                         <li><a href="/completedapplications"><i class="material-icons">done</i>Completed applications</a></li>
                         @endif
                         @if(Auth::user()->hasRole('organization admin'))
+                        <li><a href="/staff/"><i class="material-icons">face</i>Staff</a></li>
                         <li><a href="/credits/assignation"><i class="material-icons">attach_money</i>Credits assignation</a></li>
                         <li><a href="/activeapplications"><i class="material-icons">insert_drive_file</i>Active applications</a></li>
                         <li><a href="/completedapplications"><i class="material-icons">done</i>Completed applications</a></li>

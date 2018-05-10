@@ -21,7 +21,6 @@ class AccountController extends Controller
     {
         $data['user'] = Auth::user();
         return view('account', $data);
-
     }
 
     /**
@@ -37,6 +36,10 @@ class AccountController extends Controller
         $userPassword = $user->password;
         $this->validate($request, [
             'name' => 'max:255|required',
+            'age' => 'numeric|required',
+            'gender' => 'required',
+            'status' => 'required',
+            'scholarity' => 'required',
         ]);
 
         if ($user->email != $request->get('email')) {
@@ -45,19 +48,19 @@ class AccountController extends Controller
             ]);
         }
 
-        if($request->get('old_password') && $request->get('new_password') && $request->get('new_password_confirmation')) {
+        if ($request->get('old_password') && $request->get('new_password') && $request->get('new_password_confirmation')) {
             $this->validate($request, [
                 'old_password' => 'min:6|required',
                 'new_password' => 'min:6|required|confirmed',
                 'new_password_confirmation' => 'min:6|required',
             ]);
             // check if the old password matches with the one in the database
-            if(!Hash::check($request->get('old_password'), $user->password)){
+            if (!Hash::check($request->get('old_password'), $user->password)) {
                 Session::flash('flash_message', 'The old password doesn\'t match!');
                 return back();
             }
             // check if the password old and new are the same
-            if(Hash::check($request->get('new_password'), $user->password)) {
+            if (Hash::check($request->get('new_password'), $user->password)) {
                 Session::flash('flash_message', 'The old password is the same as the new one, this should be different!');
                 return back();
             }
@@ -67,7 +70,11 @@ class AccountController extends Controller
 
         $user->name = $request->get('name');
         $user->email = $request->get('email');
-        if($action == 'change'){
+        $user->age = $request->get('age');
+        $user->gender = $request->get('gender');
+        $user->status = $request->get('status');
+        $user->scholarity = $request->get('scholarity');
+        if ($action == 'change') {
             $user->password = bcrypt($request->get('new_password'));
         }
         try {

@@ -21,6 +21,11 @@ class CreateUsersTable extends Migration
             $table->integer('organization_id')->unsigned();
             $table->dateTime('confirmed_on')->nullable();
             $table->integer('user_type')->default(0);
+            $table->integer('age')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('status')->nullable();
+            $table->string('scholarity')->nullable();
+            $table->boolean('visible')->default(true);
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
