@@ -180,8 +180,15 @@ class TestApplicationsController extends Controller
         elseif ($testApplication->test->id == 2){
             $data['gradings'] = $this->grade2($testApplication);
         }
+        elseif ($testApplication->test->id == 3){
+            $data['gradings'] = $this->grade3($testApplication);
+        }
+
          elseif ($testApplication->test->id == 4){
             $data['gradings'] = $this->grade4($testApplication);
+        } 
+        elseif ($testApplication->test->id == 5){
+            $data['gradings'] = $this->grade5($testApplication);
         } 
 
         $data['testApplication'] = $testApplication;
@@ -428,4 +435,43 @@ class TestApplicationsController extends Controller
 
         return $gradings;
     }
+
+     public function grade3($testApplication)
+    {   
+        // Zavic
+        // Categorias de resultados del test (Intereses y Valores)
+        $gradings["Dominante"] = 0;
+        $gradings["Influyente"] = 0;
+        $gradings["Estable"] = 0;
+        $gradings["Conciente"] = 0;
+       
+
+        return $gradings;
+    }
+
+    public function grade5($testApplication)
+    {   
+        // Zavic
+        // Categorias de resultados del test (Intereses y Valores)
+        $gradings["Afabilidad"] = 0;
+        $gradings["Razonamiento"] = 0;
+        $gradings["Estabilidad"] = 0;
+        $gradings["Dominancia"] = 0;
+        $gradings["Animacion"] = 0;
+        $gradings["Normas"] = 0;
+        $gradings["Atrevimiento"] = 0;
+        $gradings["Sensibilidad"] = 0;
+        $gradings["Vigilancia"] = 0;
+        $gradings["Abstraccion"] = 0;
+        $gradings["Privacidad"] = 0;
+        $gradings["Aprension"] = 0;
+        $gradings["Autosuficiencia"] = 0;
+        $gradings["Perfeccionismo"] = 0;
+        $gradings["Apertura Cambio"] = 0;
+        $gradings["Tension"] = 0;
+       
+
+        return $gradings;
+    }
+
 }
