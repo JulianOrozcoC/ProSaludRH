@@ -438,20 +438,98 @@ class TestApplicationsController extends Controller
 
      public function grade3($testApplication)
     {   
-        // Zavic
-        // Categorias de resultados del test (Intereses y Valores)
-        $gradings["Dominante"] = 0;
-        $gradings["Influyente"] = 0;
-        $gradings["Estable"] = 0;
-        $gradings["Conciente"] = 0;
+        // Cleaver
        
+
+        $subgrade["Sub-MD"] = 0;
+        $subgrade["Sub-MI"] = 0;
+        $subgrade["Sub-MS"] = 0;
+        $subgrade["Sub-MC"] = 0;
+        $subgrade["Sub-LD"] = 0;
+        $subgrade["Sub-LI"] = 0;
+        $subgrade["Sub-LS"] = 0;
+        $subgrade["Sub-LC"] = 0;
+        $subgrade["SubTotalD"] = 0;
+        $subgrade["SubTotalI"] = 0;
+        $subgrade["SubTotalS"] = 0;
+        $subgrade["SubTotalC"] = 0;
+
+         // Datos de Grafica 'Motivacion'
+        $gradings["MC"] = 0;
+        $gradings["MS"] = 0;
+        $gradings["MI"] = 0;
+        $gradings["MD"] = 0;
+        // Datos de Grafica 'Presion'
+        $gradings["LC"] = 0;
+        $gradings["LS"] = 0;
+        $gradings["LI"] = 0;
+        $gradings["LD"] = 0;
+        // Datos de Grafica 'Normal'
+        $gradings["TotalC"] = 0;;
+        $gradings["TotalS"] = 0;;
+        $gradings["TotalI"] = 0;;
+        $gradings["TotalD"] = 0;;
+
+
+
+        // Revisar resultados del test
+        foreach ($testApplication->responses as $response) {
+         
+            if (in_array($response->question_number, Config::get('questions')['grading3'][0])) {
+                $subgrade["Sub-MD"] += $response->answer;
+            }
+            if (in_array($response->question_number, Config::get('questions')['grading3'][1])) {
+                $subgrade["Sub-MI"] += $response->answer;
+            }
+            if (in_array($response->question_number, Config::get('questions')['grading3'][2])) {
+                $subgrade["Sub-MS"] += $response->answer;
+            }
+            if (in_array($response->question_number, Config::get('questions')['grading3'][3])) {
+                $subgrade["Sub-MC"] += $response->answer;
+            } 
+            if (in_array($response->question_number, Config::get('questions')['grading3'][4])) {
+                $subgrade["Sub-LD"] += $response->answer;
+            } 
+            if (in_array($response->question_number, Config::get('questions')['grading3'][5])) {
+                $subgrade["Sub-LI"] += $response->answer;
+            } 
+            if (in_array($response->question_number, Config::get('questions')['grading3'][6])) {
+                $subgrade["Sub-LS"] += $response->answer;
+            }
+            if (in_array($response->question_number, Config::get('questions')['grading3'][7])) {
+                $subgrade["Sub-LC"] += $response->answer;
+            }  
+        }
+
+        $subgrade["SubTotalD"] = $subgrade["Sub-MD"]-$subgrade["Sub-LD"];
+        $subgrade["SubTotalI"] = $subgrade["Sub-MI"]-$subgrade["Sub-LI"];
+        $subgrade["SubTotalS"] = $subgrade["Sub-MS"]-$subgrade["Sub-LS"];
+        $subgrade["SubTotalC"] = $subgrade["Sub-MC"]-$subgrade["Sub-LC"];
+       
+        // Datos de Grafica 'Motivacion'
+        $gradings["MC"] = Config::get('questions')['C']['M'][$subgrade["Sub-MC"]];
+        $gradings["MS"] = Config::get('questions')['S']['M'][$subgrade["Sub-MS"]];
+        $gradings["MI"] = Config::get('questions')['I']['M'][$subgrade["Sub-MI"]];
+        $gradings["MD"] = Config::get('questions')['D']['M'][$subgrade["Sub-MD"]];
+       
+        // Datos de Grafica 'Presion'
+        $gradings["LC"] = Config::get('questions')['C']['L'][$subgrade["Sub-LC"]];
+        $gradings["LS"] = Config::get('questions')['S']['L'][$subgrade["Sub-LS"]];
+        $gradings["LI"] = Config::get('questions')['I']['L'][$subgrade["Sub-LI"]];
+        $gradings["LD"] = Config::get('questions')['D']['L'][$subgrade["Sub-LD"]];
+       
+        // Datos de Grafica 'Normal'
+        $gradings["TotalC"] = Config::get('questions')['C']['T'][$subgrade["SubTotalC"]];
+        $gradings["TotalS"] = Config::get('questions')['S']['T'][$subgrade["SubTotalS"]];
+        $gradings["TotalI"] = Config::get('questions')['I']['T'][$subgrade["SubTotalI"]];
+        $gradings["TotalD"] = Config::get('questions')['D']['T'][$subgrade["SubTotalD"]];
 
         return $gradings;
     }
 
     public function grade5($testApplication)
     {   
-        // Zavic
+        // 16PF
         // Categorias de resultados del test (Intereses y Valores)
         $gradings["Afabilidad"] = 0;
         $gradings["Razonamiento"] = 0;
